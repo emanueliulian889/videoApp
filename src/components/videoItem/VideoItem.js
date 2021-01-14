@@ -1,8 +1,15 @@
 import React from "react";
+import classes from './videoItem.module.scss';
 
-const VideoItem = (props) => {
+const VideoItem = ({video, onVideoSelect}) => {
+    // console.log('=== videoItem page ===', onVideoSelect)
     return (
-        <h1>{props.title}</h1>
+        <div className={`${classes.videoItem} item`} onClick={() => onVideoSelect(video)}>
+            <img src={video.snippet.thumbnails.medium.url} className="ui image" alt={video.snippet.title} />
+            <div className="content">
+                <span className='header'>{video.snippet.title}</span>
+            </div>
+        </div>
     )
 }
 
